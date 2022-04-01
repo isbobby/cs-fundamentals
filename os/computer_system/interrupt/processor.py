@@ -1,9 +1,9 @@
 from enum import Enum
 import time
 
-from computer_system.instruction import Instruction
-from computer_system.interrupt import Interrupt
-from computer_system.blocking_event import BlockingEvent
+from instruction import Instruction
+from interrupt_service_routine import InterruptServiceRoutine
+from blocking_event import BlockingEvent
 
 class INTERRUPT_MODE(Enum):
     no_interrupt_handling = 0
@@ -65,9 +65,9 @@ class Processor:
                     event_list.insert(index + n_instruction, Event.interrupt)
             
             elif event == Event.interrupt:
-                interrupt = Interrupt(priority=1)
+                interrupt = InterruptServiceRoutine(priority=1)
                 print(f"Service Interrupt - {interrupt.service_time}")
                 self.service_interrupt(interrupt=interrupt)
     
-    def service_interrupt(self, interrupt : Interrupt) -> None:
+    def service_interrupt(self, interrupt : InterruptServiceRoutine) -> None:
         time.sleep(interrupt.service_time)

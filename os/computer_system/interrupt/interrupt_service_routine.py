@@ -1,6 +1,6 @@
 import random
 
-class Interrupt:
+class InterruptServiceRoutine:
     """
     Simulates an interrupt, interrupt servicing takes any 
     time between 1.0 and 1.5 seconds to complete

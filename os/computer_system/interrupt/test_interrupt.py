@@ -4,7 +4,7 @@ modes of handling interrupts.
 """
 import time
 
-from computer_system.processor import Processor, INTERRUPT_MODE, Event
+from processor import Processor, INTERRUPT_MODE, Event
 
 class Driver:
     """
