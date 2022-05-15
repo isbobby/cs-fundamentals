@@ -1,3 +1,6 @@
+import sys
+
+
 def convert(num, verbose=True):
     res = ""
     index = 0
@@ -23,7 +26,13 @@ def test():
     return True
 
 if __name__ == "__main__":
+    try:
+        num = int(input("Enter an integer: "))
+    except ValueError:
+        print(f"Input cannot be converted to integer type")
+        sys.exit()
+    
     if test() == True:
-        res = convert(38)
+        res = convert(num)
     else:
         print("Incorrect implementation")
